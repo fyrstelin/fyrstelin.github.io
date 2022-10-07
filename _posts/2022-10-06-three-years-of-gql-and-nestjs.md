@@ -276,7 +276,7 @@ posts
 
 </div>
 
-It is quite obvious lot of extra files have been added, but that gives some very simple resolvers with only a few lines of code.
+It is quite obvious that a lot of extra files have been added, but that gives some very simple resolvers with only a few lines of code.
 
 ### Snippets
 With the help from [arelstone](https://github.com/arelstone), I have created some [vscode snippets](/static/snippets/graphql-resolvers.code-snippets "download") for easily scaffolding these resolvers. Just create the resolver following the naming convention (`{some}.query.ts`, `{some}.mutation.ts` or some `{some-entity}.{a-field}.resovler.ts`) and use the query, mutation or resolver snippet respectively.
