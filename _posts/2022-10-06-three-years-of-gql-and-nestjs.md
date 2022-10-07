@@ -245,16 +245,15 @@ export class UserPostsResolver {
 
 <div class='spread'>
 
-```
+<pre>
 users
   users.resolver.ts
 posts
   posts.resolver.ts
   comments.resolver.ts
-```
+</pre>
 
-```
-
+<pre>
 users
   mutations
     register-user.mutation.ts
@@ -273,8 +272,7 @@ posts
     post.author.resolver.ts
     post.comments.resolver.ts
     user.posts.resolver.ts
-```
-</div>
+</pre>
 
 It is quite obvious lot of extra files have been added, but that gives some very simple resolvers with only a few lines of code.
 
