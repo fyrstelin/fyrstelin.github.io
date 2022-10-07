@@ -1,0 +1,1 @@
+Through work and hobby projects, a lot of thoughts comes to mind. Falling a sleep a night can some times be a problem. This blog is an attempt to clear my mind once in a while. Hopefully other software developers can benefit from this blog as well.

@@ -1,0 +1,39 @@
+title: "The Software Tailor"
+author: "Andreas Fyrstelin Fuller"
+description: "Thoughts from a software developer's life"
+email: "afkpost@gmail.com"
+github_username: fyrstelin
+linkedin_username: fyrstelin
+twitter_username: fyrstelin
+#facebook_username: username
+#flickr_username: username
+#instagram_username: username
+#pinterest_username: username
+#youtube_username: username
+#googleplus_username: +username
+
+#########################################################################################
+######### Nothing below needs to be changed (unless you know what you're doing) #########
+#########################################################################################
+theme: "minima"
+
+rss: rss
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+    
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+titles_from_headings:
+  strip_title: true
+  collections: true
+
+defaults:
+  - scope:
+      path: ""
+      type: post
+    values:
+      tags: Other
