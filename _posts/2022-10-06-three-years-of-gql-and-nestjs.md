@@ -245,7 +245,7 @@ export class UserPostsResolver {
 
 <div class='spread'>
 
-<pre><code>
+<pre><code class="language-plaintext">
 users
   users.resolver.ts
 posts
@@ -253,7 +253,7 @@ posts
   comments.resolver.ts
 </code></pre>
 
-<pre><code>
+<pre><code class="language-plaintext">
 users
   mutations
     register-user.mutation.ts
