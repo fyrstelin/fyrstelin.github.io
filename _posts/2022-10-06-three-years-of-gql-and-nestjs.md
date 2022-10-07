@@ -245,15 +245,15 @@ export class UserPostsResolver {
 
 <div class='spread'>
 
-<pre>
+<pre><code>
 users
   users.resolver.ts
 posts
   posts.resolver.ts
   comments.resolver.ts
-</pre>
+</code></pre>
 
-<pre>
+<pre><code>
 users
   mutations
     register-user.mutation.ts
@@ -272,7 +272,7 @@ posts
     post.author.resolver.ts
     post.comments.resolver.ts
     user.posts.resolver.ts
-</pre>
+</code></pre>
 
 </div>
 
