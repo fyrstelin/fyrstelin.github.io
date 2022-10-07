@@ -242,7 +242,7 @@ export class UserPostsResolver {
 ```
 
 ### Snippets
-With the help from [arelstone](https://github.com/arelstone), I have created some [vscode snippets](/static/snippets/graphql-resolvers "download") for easily scaffolding these resolvers. Just create the resolver following the naming convention (`{some}.query.ts`, `{some}.mutation.ts` or some `{some-entity}.{a-field}.resovler.ts`) and use the query, mutation or resolver snippet respectively.
+With the help from [arelstone](https://github.com/arelstone), I have created some [vscode snippets](/static/snippets/graphql-resolvers.code-snippets "download") for easily scaffolding these resolvers. Just create the resolver following the naming convention (`{some}.query.ts`, `{some}.mutation.ts` or some `{some-entity}.{a-field}.resovler.ts`) and use the query, mutation or resolver snippet respectively.
 
 ### Conclusion
 Now each resolver have one responsibility and are easy to find from the schema (just search for `{entity}.{field}.resolver`, `{query-name}.query` or `{mutation-name}.mutation`) and the dependencies have been cleaned up. This is taken a bit to the extreme, and it is up to you as a developer to find your sweet spot - for me this worked out very well in a fairly large project (schema of 2000 lines)
