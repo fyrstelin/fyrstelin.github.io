@@ -241,6 +241,43 @@ export class UserPostsResolver {
 }
 ```
 
+### File structure comparison:
+
+<div class='spread'>
+
+```
+users
+  users.resolver.ts
+posts
+  posts.resolver.ts
+  comments.resolver.ts
+```
+
+```
+
+users
+  mutations
+    register-user.mutation.ts
+  queries
+    user.query.ts
+  resolvers
+    user.name.resolver.ts
+posts
+  mutations
+    add-comment.mutation.ts
+    create-post.mutation.ts
+  queries
+    post.query.ts
+  resolvers
+    comment.author.resolver.ts
+    post.author.resolver.ts
+    post.comments.resolver.ts
+    user.posts.resolver.ts
+```
+</div>
+
+It is quite obvious lot of extra files have been added, but that gives some very simple resolvers with only a few lines of code.
+
 ### Snippets
 With the help from [arelstone](https://github.com/arelstone), I have created some [vscode snippets](/static/snippets/graphql-resolvers.code-snippets "download") for easily scaffolding these resolvers. Just create the resolver following the naming convention (`{some}.query.ts`, `{some}.mutation.ts` or some `{some-entity}.{a-field}.resovler.ts`) and use the query, mutation or resolver snippet respectively.
 
