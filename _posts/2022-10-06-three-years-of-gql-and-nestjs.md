@@ -274,6 +274,8 @@ posts
     user.posts.resolver.ts
 </pre>
 
+</div>
+
 It is quite obvious lot of extra files have been added, but that gives some very simple resolvers with only a few lines of code.
 
 ### Snippets
