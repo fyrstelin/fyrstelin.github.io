@@ -4,10 +4,9 @@ tags:
   - GraphQL
 ---
 
-
 ## Three years of GraphQL and NestJS
 
-For the last three years I have been working a lot with GraphQL in NestJS, and in general I really think this is a great framework. Since NestJS is opioniated, it should be easy to figure out the right way to organize your GrahpQL resolvers. But it isn't and it bugs me. There is some guidance of how to do it, but it seems to be some simple use cases. In a real world application that have just a minimum of complexity, these guides falls short.
+For the last three years I have been working a lot with GraphQL in NestJS ([@nestjs/graphql](https://www.npmjs.com/package/@nestjs/graphql)), and in general I really think this is a great framework. Since NestJS is opinionated, it should be easy to figure out the right way to organize your GrahpQL resolvers. But it isn't and it bugs me. There is some guidance of how to do it, but it seems to be some simple use cases. In a real world application that have just a minimum of complexity, these guides falls short.
 
 In the following, I will explore this schema:
 
@@ -42,7 +41,7 @@ type Mutation {
 }
 ```
 
-Even though this is simple example, it is very likely that it will (at some point) be split into two modules:
+Even though this is simple example, it is very likely that it will (at least at some point) be split into two modules:
 ```
 - users (User)
 - posts (Post, Comments)
@@ -102,7 +101,7 @@ This seems fine by at first glance, but it comes with some problems.
 
 
 ### One resolver, many responsibilities
-First thing to notice, is that the resolvers have quite a lot going on: it uses @Query, @Mutation and @ResolveField. And more critical: why is the queries and mutation put in the PostsResolver and not the CommentsResolver - probably because it is in the posts module, but there is not guarentee that a module a main entity with the same name as the module? A better separation would be to split resolvers into query-, mutation- and entity resolvers. For the comments module it looks like:
+First thing to notice, is that the resolvers have quite a lot going on: it uses @Query, @Mutation and @ResolveField. And more critical: why is the queries and mutation put in the PostsResolver and not the CommentsResolver - probably because it is in the posts module, but there is no guarentee that a module have a main entity with the same name as the module. A better separation would be to split resolvers into query-, mutation- and entity resolvers. For the comments module it looks like:
 
 ```typescript
 // posts/query.resolver.ts
@@ -242,6 +241,10 @@ export class UserPostsResolver {
 }
 ```
 
+### Snippets
+With the help from [arelstone](https://github.com/arelstone), I have created some [vscode snippets](/static/snippets/graphql-resolvers "download") for easily scaffolding these resolvers. Just create the resolver following the naming convention (`{some}.query.ts`, `{some}.mutation.ts` or some `{some-entity}.{a-field}.resovler.ts`) and use the query, mutation or resolver snippet respectively.
 
 ### Conclusion
-Now each resolver have one responsibility and are easy to find from the schema (just search for \<entity\>.\<field\>.resolver, \<query-name>\.query or \<mutation-name\>.mutation) and the dependencies have been cleaned up. This is taken a bit to the extreme, and it is up to you as a developer to find your sweet spot - for me this worked out very well in a fairly large project (schema of 2000 lines)
+Now each resolver have one responsibility and are easy to find from the schema (just search for `{entity}.{field}.resolver`, `{query-name}.query` or `{mutation-name}.mutation`) and the dependencies have been cleaned up. This is taken a bit to the extreme, and it is up to you as a developer to find your sweet spot - for me this worked out very well in a fairly large project (schema of 2000 lines)
+
+

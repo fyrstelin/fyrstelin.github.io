@@ -1,0 +1,79 @@
+{
+  "mutation": {
+    "prefix": "mutation",
+    "description": "Scaffold a generic graphql mutation",
+    "scope": "typescript",
+    "body": [
+      "import { InputType, Mutation, ObjectType, Resolver, Field, ID } from '@nestjs/graphql'",
+      "import { Input } from '@paralenz/graphql'",
+      "",
+      "@InputType()",
+      "class ${TM_FILENAME_BASE/(.*)\\.mutation$/${1:/pascalcase}/}Input {",
+      "  @Field(() => ID)",
+      "  id: string",
+      "}",
+      "",
+      "@ObjectType()",
+      "class ${TM_FILENAME_BASE/(.*)\\.mutation$/${1:/pascalcase}/}Payload {${1}}",
+      "",
+      "@Resolver()",
+      "export class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} {",
+      "  @Mutation(() => ${TM_FILENAME_BASE/(.*)\\.mutation$/${1:/pascalcase}/}Payload)",
+      "  async ${TM_FILENAME_BASE/(.*)\\.mutation$/${1:/camelcase}/} (",
+      "    @Input() input: ${TM_FILENAME_BASE/(.*)\\.mutation$/${1:/pascalcase}/}Input",
+      "  ): Promise<${TM_FILENAME_BASE/(.*)\\.mutation$/${1:/pascalcase}/}Payload> {",
+      "    ${0:throw new Error('Not implemented')}",
+      "  }",
+      "}",
+      ""
+    ]
+  },
+  "query": {
+    "prefix": "query",
+    "description": "Scaffold a generic graphql query",
+    "scope": "typescript",
+    "body": [
+      "import { Args, ArgsType, Query, Resolver, Field, ID } from '@nestjs/graphql'",
+      "",
+      "@ArgsType()",
+      "class ${TM_FILENAME_BASE/(.*)\\.query$/${1:/pascalcase}/}Args {",
+      "}",
+      "",
+      "@Resolver()",
+      "export class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} {",
+      "  @Query(() => ${1:ReturnType})",
+      "  async ${TM_FILENAME_BASE/(.*)\\.query$/${1:/camelcase}/} (",
+      "    @Args() args: ${TM_FILENAME_BASE/(.*)\\.query$/${1:/pascalcase}/}Args",
+      "  ): Promise<$1> {",
+      "    ${2:throw new Error('Not implemented')}",
+      "  }",
+      "}",
+      ""
+    ]
+  },
+  "resolver": {
+    "prefix": "resolver",
+    "description": "Scaffold a generic graphql resolver",
+    "scope": "typescript",
+    "body": [
+      "import { Resolver, ResolveField, Parent, ArgsType, Args } from '@nestjs/graphql'",
+      "import { ${TM_FILENAME_BASE/([^\\.]*).*$/${1:/pascalcase}/} } from '$1'",
+      "",
+      "@ArgsType()",
+      "class ${TM_FILENAME_BASE/(.*)\\.resolver$/${1:/pascalcase}/}Args {",
+      "}",
+      "",
+      "@Resolver(${TM_FILENAME_BASE/([^\\.]*).*$/${1:/pascalcase}/})",
+      "export class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} {",
+      "  @ResolveField(() => ${2:Type})",
+      "  ${TM_FILENAME_BASE/[^\\.]*\\.([^\\.]*).*$/${1:/camelcase}/} (",
+      "    @Parent() ${TM_FILENAME_BASE/([^\\.]*).*$/${1:/camelcase}/}: ${TM_FILENAME_BASE/([^\\.]*).*$/${1:/pascalcase}/},",
+      "    @Args() args: ${TM_FILENAME_BASE/(.*)\\.resolver$/${1:/pascalcase}/}Args",
+      "  ): Promise<$2> {",
+      "    ${3:throw new Error('Not implemented')}",
+      "  }",
+      "}",
+      ""
+    ]
+  }
+}
