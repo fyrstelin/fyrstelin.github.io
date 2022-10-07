@@ -241,7 +241,7 @@ export class UserPostsResolver {
 }
 ```
 
-### File structure comparison:
+### File structure comparison
 
 <div class='spread'>
 
