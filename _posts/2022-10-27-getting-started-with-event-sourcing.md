@@ -5,7 +5,7 @@ tags:
 
 # Getting started with Event Sourcing
 For 5 years I've been working with Event Sourcing. Even though I really like that way of persisting data, it comes with some (maybe a lot of) complexity, and it is often not easy for new employees to get into.  
-Event Sourcing is not easy - the same goes for SQL, we have just been tought how to do it a looong time ago. If we (for now) ignore some of the more complex parts - like projetions, processes, snapshots, CQRS etc - it isn't that difficult and can be seen as Document Store.
+Event Sourcing is not easy - the same goes for SQL, we have just been taught how to do it a looong time ago. If we (for now) ignore some of the more complex parts - like projetions, processes, snapshots, CQRS etc - it isn't that difficult and can be seen as Document Store.
 
 
 ## What is Event Sourcing?
@@ -15,7 +15,7 @@ Event Sourcing is a way of persisting you entities. Instead of storing the state
 No it is not more than this.
 - It is not a way for to communicate between Micro Services.
 - It have nothing to do with DOM events.
-- It is not CQRS or DDD (but can be used for it and is a very good fit).
+- It is not CQRS or DDD - but can be used for it and is a very good fit!
 
 It is just one way of storing data. 
 
@@ -39,7 +39,7 @@ The event store will have the following methods
   `append(documentId: string, expectedEventCount: number, events: IReadonlyList<object>): Promise<void>`  
   _The expectedEventCount is to ensure that nothing else have happened since reading the events (optimistic concurrency)_
 
-With EventStoreDB it is fairly trivial to implement an adapter between our simple interface and the very complex interface of EventStoreDB. Basically it is just a call to
+With EventStoreDB it is fairly trivial to implement an adapter between our simple interface and the more complex interface of EventStoreDB. Basically it is just a call to
 
 ```typescript
   const events = client.readStream(documentId);
@@ -252,7 +252,7 @@ it('should update user name', () => {
 
 More on tests another day...
 
-## Some caveats
+## Some considerations
 - When serializing events, the prototype is lost. The name is stored in EventStoreDB, so you should either explicitly set the prototype when deserializing you events, or add a unique property to your events so you can use that instead of `instanceof` whn applying events.
 - You probably want an interface or abstract class for events instead of using object.
 
