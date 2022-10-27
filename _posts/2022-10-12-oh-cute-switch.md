@@ -4,12 +4,12 @@ tags:
   - NPM
 ---
 
-## Oh Cute - Switch
+# Oh Cute - Switch
 Through out the last couple of years I've often been missing a switch expression in JavaScript. Sometimes object literals can solve the problem, but having a default handler is a bit subtle and might add some noise to the code.
 
 Inspired by [ShinySwitch](https://github.com/asgerhallas/ShinySwitch), I decided to implement something similar for NodeJS.
 
-### Where is my const?
+## Where is my const?
 The general use case is something like:
 
 ```javascript
@@ -59,7 +59,7 @@ const color = (() => {
 It is a bit more dense, and this is a pattern I've often been using. It is still a bit bloated though.
 
 
-### Objects to the rescue
+## Objects to the rescue
 A simple alternative to a switch statement, is simply to use an object:
 
 ```javascript
@@ -88,7 +88,7 @@ const color = ({
 
 Now it becomes less readable due to too many parentheses.
 
-### A cute abstraction
+## A cute abstraction
 
 To make switching more elegant, I've created [Cute Switch](https://www.npmjs.com/package/cute-switch):
 
@@ -109,11 +109,11 @@ It it quite close to using a object litteral, but the target have been moved to 
 Another benefit (due to advanced use of types in TypeScript), is that CuteSwitch tells you which cases you are missing through intellisense - again, just like a normal switch statement.
 
 
-### Other use cases.
+## Other use cases.
 Cute switch also supports switching on classes or discriminated unions - for examples, goto [Cute Switch](https://www.npmjs.com/package/cute-switch)
 
 
-### Thought about the future
+## Thoughts about the future
 Right now Cute Switch is only available as a CommonJS package. At some point it should also be available as an ESM package, but right now their is no need driving this.
 
 For simpler implementation, I've made a `Switch` and a `SwitchOn` function for handling "normal switching" and "class switching" respectively. One day the implementation might merge to form a simpler API.
