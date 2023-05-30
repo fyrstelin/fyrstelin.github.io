@@ -4,7 +4,7 @@ tags:
 ---
 
 # Getting started with Event Sourcing
-For 5 years I've been working with Event Sourcing, and in my 10 years as a developer I've heard this phrases a lot:
+For 5 years I've been working with Event Sourcing, and in my 10 years as a developer I've heard these phrases a lot:
 
 > I wish I knew how we got into this state
 
@@ -12,12 +12,12 @@ For 5 years I've been working with Event Sourcing, and in my 10 years as a devel
 
 > Can we please do a change or audit log on this and that?
 
-Even though I really like that way of persisting data, it comes with some (maybe a lot of) complexity, and it is often not easy for new employees to get into.  
+Even though I really like Event Sourcing for persisting data, it comes with some (maybe a lot of) complexity, and it is often not easy for new employees to get into.  
 Event Sourcing is not easy - the same goes for SQL, we have just been taught how to do it a looong time ago. If we (for now) ignore some of the more complex parts - like projections, processes, snapshots, versioning etc - it isn't that difficult and can be seen as Document Store.
 
 
 ## What is Event Sourcing?
-Event Sourcing is a way of persisting your data. Instead of storing state (like `User("Andreas")`), you store the events leading to that state (`UserCreated("Andreass"), NameUpdated("Andreas"`). To get the current state you simply apply relevant events.
+Event Sourcing is a way of persisting your data. Instead of storing state (like `User("Andreas")`), you store the events leading to that state (`UserCreated("Andreass"), NameUpdated("Andreas"`). To get the current state you simply apply the relevant events.
 
 ### So is it ...?
 No it is not more than this.
